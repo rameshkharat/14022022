@@ -4,10 +4,16 @@ on:
     branches:
     - "!prod"
     - "!dev"
-    - feature
+    - 'feature'
   pull_request:
-    - prod
-    - dev
+    types:
+      - opened
+      - repoened
+      - assigned
+    branches:
+    - "!prod"
+    - 'prod'
+    - 'dev'
     - "!features"
 jobs:
   push-event:
