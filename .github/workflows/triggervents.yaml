@@ -1,6 +1,14 @@
 name: learning event triggers
-on: [pull_request]
-
+on: [push, pull,pull_request]
+braches:
+  push_event:
+  - !prod
+  - !dev
+  - features
+  pull_event:
+   - prod
+   - dev
+   - !features
 jobs:
   push-event:
     runs-on: ubuntu-latest
@@ -11,6 +19,7 @@ jobs:
           ls
           lsblk
           cat /etc/os-release
+          cat /etc/fstab
       - name: list few more files
         run: |
           echo $HOME
