@@ -1,0 +1,27 @@
+name: learning event triggers
+on:
+  push: 
+     branches:
+       - prod
+     schedule: 
+       - cron: "*/5 * * * *"
+
+jobs:
+  push-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list files
+        run: |
+          pwd
+          ls
+          lsblk
+          cat /etc/os-release
+          cat /etc/passwd
+          cat /etc/fstab
+          cat /etc/hosts
+      - name: list few more files
+        run: |
+          echo $HOME
+          echo $UID
+          echo "Hello1"
+          echo "Hello friends"
