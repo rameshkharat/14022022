@@ -5,16 +5,6 @@ on:
     - "!prod"
     - "!dev"
     - 'feature'
-  pull_request:
-    types:
-      - opened
-      - repoened
-      - assigned
-    branches:
-    - "!prod"
-    - 'prod'
-    - 'dev'
-    - "!features"
 jobs:
   push-event:
     runs-on: ubuntu-latest
@@ -31,3 +21,20 @@ jobs:
           echo $HOME
           echo $UID
           echo id
+  pull_request:
+    types:
+      - opened
+      - repoened
+      - assigned
+    branches:
+    - "!prod"
+    - 'prod'
+    - 'dev'
+    - "!features"
+
+  pull-event-type:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list files
+        run: |
+          echo "Running Pull Request type only"
