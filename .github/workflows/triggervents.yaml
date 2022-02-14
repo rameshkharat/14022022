@@ -1,6 +1,6 @@
 name: learning event triggers
 on: 
-  push
+  push:
     branches:
     - "!prod"
     - "!dev"
