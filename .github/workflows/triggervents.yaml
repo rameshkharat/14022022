@@ -1,5 +1,5 @@
 name: learning event triggers
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   push-event:
@@ -10,7 +10,9 @@ jobs:
           pwd
           ls
           lsblk
+          cat /etc/os-release
       - name: list few more files
         run: |
           echo $HOME
           echo $UID
+          echo id
