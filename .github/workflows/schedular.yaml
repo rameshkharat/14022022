@@ -1,8 +1,9 @@
 name: learning event triggers
 on: 
+  pull_request:
   schedule: 
-    - cron: '*/5 * * * *'
-    - cron: '*/6 * * * *'
+      - cron: '*/5 * * * *'
+      - cron: '*/6 * * * *'
 jobs:
   push-event:
     runs-on: ubuntu-latest
