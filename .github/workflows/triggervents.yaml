@@ -21,21 +21,19 @@ jobs:
           echo $HOME
           echo $UID
           echo id
-jobs:
-  on:
-   pull_request:
-     types:
-       - opened
-       - repoened
-       - assigned
-     branches:
-     - "!prod"
-     - 'prod'
-     - 'dev'
-     - "!features"
-   pull-event-type:
-     runs-on: ubuntu-latest
-     steps:
-       - name: list files
-         run: |
-           echo "Running Pull Request type only"
+  pull_request:
+    types:
+      - opened
+      - repoened
+      - assigned
+    branches:
+    - "!prod"
+    - 'prod'
+    - 'dev'
+    - "!features"
+    pull-event-type:
+      runs-on: ubuntu-latest
+      steps:
+        - name: list files
+          run: |
+             echo "Running Pull Request type only"
