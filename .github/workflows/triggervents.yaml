@@ -1,6 +1,6 @@
 name: learning event triggers
 on: [push, pull_request]
-branches:
+branch:
   push_event:
   - !prod
   - !dev
