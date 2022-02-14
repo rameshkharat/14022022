@@ -1,5 +1,5 @@
 name: learning event triggers
-on: [push, pull,pull_request]
+on: [push, pull_request]
 braches:
   push_event:
   - !prod
