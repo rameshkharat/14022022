@@ -3,9 +3,9 @@ on:
   schedule: 
     - cron: "*/5 * * * *"
     - cron: "*/6 * * * *"
-branches:
-  - 'prod'
-  - '!master'
+  branches:
+   - 'prod'
+   - '!master'
 jobs:
   push-event:
     runs-on: ubuntu-latest
