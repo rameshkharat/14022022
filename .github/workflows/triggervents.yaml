@@ -4,7 +4,7 @@ branch:
   push_event:
   - !prod
   - !dev
-  - features
+  - feature
   pull_event:
    - prod
    - dev
