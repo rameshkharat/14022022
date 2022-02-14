@@ -1,39 +1,42 @@
-name: learning event triggers
+name: Actions Workflow 
+
 on: 
   push:
     branches:
-    - "!prod"
-    - "!dev"
     - 'feature'
-jobs:
-  push-event:
-    runs-on: ubuntu-latest
-    steps:
-      - name: list files
-        run: |
-          pwd
-          ls
-          lsblk
-          cat /etc/os-release
-          cat /etc/fstab
-      - name: list few more files
-        run: |
-          echo $HOME
-          echo $UID
-          echo id
+    - '!prod'
+    - '!dev'
+    
   pull_request:
-    types:
-      - opened
-      - repoened
-      - assigned
+    types: [closed, assigned, opened, reopened]
     branches:
-    - "!prod"
     - 'prod'
     - 'dev'
-    - "!features"
-    pull-event-type:
-      runs-on: ubuntu-latest
-      steps:
-        - name: list files
-          run: |
-             echo "Running Pull Request type only"
+    - '!feature'
+jobs: 
+  run-github-actions: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files 
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
+      - name: Checkout 
+        uses: actions/checkout@v1
+      - name: List Files After Checkout
+        run: |
+          pwd
+          ls -a
+      - name: Simple JS Action
+        id: greet 
+        uses: actions/hello-world-javascript-action@v1
+        with: 
+          who-to-greet: John
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
