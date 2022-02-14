@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Create issue using REST API
         run: |
-          echo ${{secret.dish}}
+          echo ${{secrets.dish}}
           echo ${{secrets.dish1}}
           echo ${{env.dish1}}
           curl --request POST \
