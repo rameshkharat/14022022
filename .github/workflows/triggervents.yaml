@@ -18,3 +18,4 @@ jobs:
         run: |
           echo $HOME
           echo $UID
+          echo "Hello friends"
