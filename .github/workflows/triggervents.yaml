@@ -18,4 +18,5 @@ jobs:
         run: |
           echo $HOME
           echo $UID
+          echo "Hello1"
           echo "Hello friends"
