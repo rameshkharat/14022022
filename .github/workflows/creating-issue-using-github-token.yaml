@@ -8,8 +8,9 @@ jobs:
     steps:
       - name: Create issue using REST API
         run: |
-          echo ${{secrets.dish}}
+          echo ${{secret.dish}}
           echo ${{secrets.dish1}}
+          echo ${{env.dish1}}
           curl --request POST \
           --url https://api.github.com/repos/${{ github.repository }}/issues \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
