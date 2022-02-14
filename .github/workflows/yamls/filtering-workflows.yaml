@@ -1,0 +1,30 @@
+name: filtering workflows
+on:
+  push:
+    branches:
+      - master
+      - main
+      - "!dev"
+      - "!master/*"
+      - "!master/**"
+        # you can 2use either branches or branches-ignore 
+        # branches-ignore:
+    tags:
+      - v1.*
+      - "!v2.0"
+
+        # you can use either tags or tags-ignore 
+        # tags-ignore:
+        #tags-ignore:
+        #- v1.*
+        #- "!v2.0"
+
+    paths:
+      - "*.html"
+        "!*.js"
+        "node1.js"
+    paths:
+      - "*.html"
+        "!*.js"
+        "node1.js"
+
